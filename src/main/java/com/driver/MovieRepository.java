@@ -47,8 +47,17 @@ public class MovieRepository {
     }
 
     public String deleteAllDirectors() throws NullPointerException {
-        director_database.clear();
+        /*director_database.clear();
         director_movie_database.clear();
+         */
+
+        for(String directorName : director_database.keySet()){
+            for(Movie movie: director_movie_database.get(directorName)){
+                movie_database.remove(movie.getName());
+            }
+            director_movie_database.remove(directorName);
+            director_database.remove(directorName);
+        }
         return "Success";
     }
 
