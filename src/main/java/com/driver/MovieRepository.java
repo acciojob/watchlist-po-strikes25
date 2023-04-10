@@ -44,7 +44,7 @@ public class MovieRepository {
         return new ArrayList<>(movie_database.keySet());
     }
 
-    public String deleteAllDirectors() {
+    public String deleteAllDirectors() throws NullPointerException {
         director_database.clear();
         director_movie_database.clear();
         return "Success";
@@ -54,7 +54,7 @@ public class MovieRepository {
         for(int i = 0 ; i < director_database.size() ; i++) {
             if(director_database.get(i).equals(director_name)){
                 director_database.remove(director_name);
-                // Updated this as well :
+                // Updated this as well : Irrelevant change to the TestCases (2)
                 director_movie_database.remove(director_name);
                 break;
             }
