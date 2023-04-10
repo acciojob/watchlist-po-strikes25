@@ -14,14 +14,12 @@ public class MovieController {
 
     @PostMapping("/add-movie")
     public ResponseEntity<String> addMovie(@RequestBody() Movie movie) {
-        movieService.addMovie(movie);
-        return new ResponseEntity<>("Success", HttpStatus.CREATED);
+        return new ResponseEntity<>(movieService.addMovie(movie), HttpStatus.CREATED);
     }
 
     @PostMapping("/add-director")
     public ResponseEntity<String> addDirector(@RequestBody() Director director) {
-        movieService.addDirector(director);
-        return new ResponseEntity<>("Success", HttpStatus.CREATED);
+        return new ResponseEntity<>(movieService.addDirector(director), HttpStatus.CREATED);
     }
 
     @GetMapping("/get-movie-by-name/{name}")

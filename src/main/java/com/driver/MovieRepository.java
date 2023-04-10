@@ -15,12 +15,14 @@ public class MovieRepository {
     HashMap<String, Director> director_database = new HashMap<>();
     HashMap<String, ArrayList<Movie>> director_movie_database = new HashMap<>();
 
-    public void addMovie(Movie movie) {
+    public String addMovie(Movie movie) {
         movie_database.put(movie.getName(), movie);
+        return "Success";
     }
 
-    public void addDirector(Director director) {
+    public String addDirector(Director director) {
         director_database.put(director.getName(), director);
+        return "Success";
     }
 
     public Movie getMovieByName(String name){
@@ -40,7 +42,7 @@ public class MovieRepository {
     }
 
     public List<String> findAllMovies(){
-        // Very Intelligent way of returning the keySet() of the movie_database :
+        // Smart way of returning the keySet() of the movie_database :
         return new ArrayList<>(movie_database.keySet());
     }
 

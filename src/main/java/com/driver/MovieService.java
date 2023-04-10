@@ -15,12 +15,12 @@ public class MovieService {
     @Autowired
     MovieRepository movieRepository;
 
-    public void addMovie(Movie movie) {
-        movieRepository.addMovie(movie);
+    public String addMovie(Movie movie) {
+        return movieRepository.addMovie(movie);
     }
 
-    public void addDirector(Director director) {
-        movieRepository.addDirector(director);
+    public String addDirector(Director director) {
+        return movieRepository.addDirector(director);
     }
 
     public Movie getMovieByName(String movie_name){
