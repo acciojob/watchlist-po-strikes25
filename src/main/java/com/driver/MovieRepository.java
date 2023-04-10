@@ -73,10 +73,9 @@ public class MovieRepository {
     }
 
     public String deleteDirectorByName(String director_name) throws NullPointerException {
-        List<Movie> director_movies = director_movie_database.get(director_name);
-        for(Movie movies : director_movies) {
-            movie_database.remove(movies);
-        }
+        for(Movie movie: director_movie_database.get(director_name))
+            movie_database.remove(movie.getName());
+
         director_movie_database.remove(director_name);
         director_database.remove(director_name);
         return "Success";
