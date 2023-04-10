@@ -54,6 +54,8 @@ public class MovieRepository {
         for(int i = 0 ; i < director_database.size() ; i++) {
             if(director_database.get(i).equals(director_name)){
                 director_database.remove(director_name);
+                // Updated this as well :
+                director_movie_database.remove(director_name);
                 break;
             }
         }
