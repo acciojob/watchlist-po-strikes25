@@ -73,6 +73,7 @@ public class MovieRepository {
     }
 
     public String deleteDirectorByName(String director_name) throws NullPointerException {
+        // This code worked and passed all TC and errors :
         for(Movie movie: director_movie_database.get(director_name))
             movie_database.remove(movie.getName());
 
