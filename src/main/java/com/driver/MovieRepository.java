@@ -49,7 +49,7 @@ public class MovieRepository {
     }
 
     public List<String> findAllMovies(){
-        // Smart way of returning the keySet() of the movie_database :
+        // Efficient way of returning the keySet() of the movie_database :
         return new ArrayList<>(movie_database.keySet());
     }
 
@@ -65,8 +65,9 @@ public class MovieRepository {
                 movie_database.remove(movie.getName());
             }
             director_movie_database.remove(directorName);
-            director_database.remove(directorName);
+            /*director_database.remove(directorName);*/
         }
+        director_database.clear();
         return "Success";
     }
 
