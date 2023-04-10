@@ -67,19 +67,18 @@ public class MovieRepository {
             director_movie_database.remove(directorName);
             /*director_database.remove(directorName);*/
         }
+        // ConcurrentModification handled :
         director_database.clear();
         return "Success";
     }
 
     public String deleteDirectorByName(String director_name) throws NullPointerException {
-        for(int i = 0 ; i < director_database.size() ; i++) {
-            if(director_database.get(i).equals(director_name)){
-                director_database.remove(director_name);
-                // Updated this as well : Irrelevant change to the TestCases (2)
-                director_movie_database.remove(director_name);
-                break;
-            }
+        List<Movie> director_movies = director_movie_database.get(director_name);
+        for(Movie movies : director_movies) {
+            movie_database.remove(movies);
         }
+        director_movie_database.remove(director_name);
+        director_database.remove(director_name);
         return "Success";
     }
 
