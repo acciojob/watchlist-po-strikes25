@@ -62,7 +62,7 @@ public class MovieRepository {
         return "Success";
     }
 
-    public String addMovieDirectorPair(String movie_name, String director_name) throws NullPointerException {
+    public String addMovieDirectorPair(String movie_name, String director_name) {
         if(!director_movie_database.containsKey(director_name))
             director_movie_database.put(director_name,new ArrayList<Movie>());
 
