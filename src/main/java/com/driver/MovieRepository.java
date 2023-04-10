@@ -11,9 +11,16 @@ import java.util.Set;
 
 @Repository
 public class MovieRepository {
-    private HashMap<String, Movie> movie_database = new HashMap<>();
-    private HashMap<String, Director> director_database = new HashMap<>();
-    private HashMap<String, ArrayList<Movie>> director_movie_database = new HashMap<>();
+    private HashMap<String, Movie> movie_database;
+    private HashMap<String, Director> director_database;
+    private HashMap<String, ArrayList<Movie>> director_movie_database;
+
+    // Last Update - allocating memory in the constructor for the lists :
+    public MovieRepository() {
+        this.movie_database = new HashMap<>();
+        this.director_database = new HashMap<>();
+        this.director_movie_database = new HashMap<>();
+    }
 
     public String addMovie(Movie movie) {
         movie_database.put(movie.getName(), movie);
@@ -51,6 +58,8 @@ public class MovieRepository {
         director_movie_database.clear();
          */
 
+        // Logic to avoid deleting the movies that haven't been mapped with a specific director :
+        // After updating this logic, 2 Errors are appearing :
         for(String directorName : director_database.keySet()){
             for(Movie movie: director_movie_database.get(directorName)){
                 movie_database.remove(movie.getName());
