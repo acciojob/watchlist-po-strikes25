@@ -11,9 +11,9 @@ import java.util.Set;
 
 @Repository
 public class MovieRepository {
-    HashMap<String, Movie> movie_database = new HashMap<>();
-    HashMap<String, Director> director_database = new HashMap<>();
-    HashMap<String, ArrayList<Movie>> director_movie_database = new HashMap<>();
+    private HashMap<String, Movie> movie_database = new HashMap<>();
+    private HashMap<String, Director> director_database = new HashMap<>();
+    private HashMap<String, ArrayList<Movie>> director_movie_database = new HashMap<>();
 
     public String addMovie(Movie movie) {
         movie_database.put(movie.getName(), movie);
